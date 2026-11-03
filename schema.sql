@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+ id BIGSERIAL PRIMARY KEY,
+ nombre VARCHAR(100) NOT NULL,
+ correo VARCHAR(254) UNIQUE NOT NULL,
+ password_hash TEXT NOT NULL,
+ creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE TABLE IF NOT EXISTS tareas (
+ id BIGSERIAL PRIMARY KEY,
+ usuario_id BIGINT NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+ titulo VARCHAR(120) NOT NULL,
+ materia VARCHAR(80) NOT NULL DEFAULT 'General',
+ nivel VARCHAR(20) NOT NULL DEFAULT 'Secundaria' CHECK (nivel IN ('Primaria','Secundaria','Preparatoria')),
+ completada BOOLEAN NOT NULL DEFAULT FALSE,
+ creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_tareas_usuario ON tareas(usuario_id);
