@@ -31,6 +31,3 @@ Node.js 20+, PostgreSQL, npm, Git, Postman opcional.
 
 ## GitHub y nube
 Crear repositorio, subir archivos sin `.env` ni `node_modules`. Para Render: servicio Web con build `npm install`, start `npm start`, y variables `DATABASE_URL`, `JWT_SECRET`, `NODE_ENV=production`. Configurar PostgreSQL administrado y ejecutar `schema.sql` antes de probar. La URL pública se obtiene **después** de desplegar, no está incluida en este repositorio.
-
-## Evidencias pendientes
-Agregar URL real de GitHub, URL de Render, capturas reales, video demostrativo y resultados de pruebas Postman al documento de entrega. El código no equivale a un despliegue realizado.
